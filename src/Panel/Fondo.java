@@ -36,6 +36,7 @@ public class Fondo extends javax.swing.JPanel {
         setOpaque(true);
     }
     
+    //paints a background picture if selected
     @Override
     public void paint(Graphics g) {
         if (backgroundpicture != null) {
