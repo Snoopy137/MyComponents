@@ -17,14 +17,14 @@ import javax.swing.ImageIcon;
  */
 public class Fondo extends javax.swing.JPanel {
     
-    private Icon ic;
+    private Icon backgroundpicture;
 
-    public Icon getIc() {
-        return ic;
+    public Icon getBackgroundpicture() {
+        return backgroundpicture;
     }
 
-    public void setIc(Icon ic) {
-        this.ic = ic;
+    public void setBackgroundpicture(Icon backgroundpicture) {
+        this.backgroundpicture = backgroundpicture;
     }
     
     /**
@@ -33,17 +33,19 @@ public class Fondo extends javax.swing.JPanel {
     
     public Fondo() {
         initComponents();
-
+        setOpaque(true);
+        repaint();
     }
     
     @Override
     public void paint(Graphics g) {
-        if (ic != null) {
-            Image img = ((ImageIcon)ic).getImage();
-            g.drawImage(img, 0, 0, getWidth(), getHeight(),
-                    this);
-
+        if (backgroundpicture != null) {
+            Image img = ((ImageIcon)backgroundpicture).getImage();
+            g.drawImage(img, 0, 0, getWidth(), getHeight(),this);
             setOpaque(false);
+            super.paint(g);
+        }
+        else{
             super.paint(g);
         }
     }
