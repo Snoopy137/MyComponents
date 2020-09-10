@@ -34,7 +34,6 @@ public class Fondo extends javax.swing.JPanel {
     public Fondo() {
         initComponents();
         setOpaque(true);
-        repaint();
     }
     
     @Override
