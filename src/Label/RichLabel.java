@@ -54,9 +54,7 @@ public class RichLabel extends JLabel{
     public void paint(Graphics g) {
         if (BackGroundPicture != null) {
             Image img = ((ImageIcon)BackGroundPicture).getImage();
-            g.drawImage(img, 0, 0, getWidth(), getHeight(),
-                    this);
-
+            g.drawImage(img, 0, 0, getWidth(), getHeight(),this);
             setOpaque(false);
             super.paint(g);
         }
@@ -67,6 +65,10 @@ public class RichLabel extends JLabel{
     
     public void setMouseovercolor(Color mouseovercolor){
         this.mouseovercolor=mouseovercolor;
+    }
+
+    public MouseAdapter getMouseover() {
+        return mouseover;
     }
 
     public Icon getBackGroundPicture() {
