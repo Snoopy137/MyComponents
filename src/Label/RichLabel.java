@@ -2,9 +2,13 @@ package Label;
 
 
 import java.awt.Color;
+import java.awt.Graphics;
+import java.awt.Image;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import javafx.scene.layout.Background;
+import javax.swing.Icon;
+import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 
 /*
@@ -21,10 +25,12 @@ public class RichLabel extends JLabel{
     
     public RichLabel (){
         this.addMouseListener(mouseover);
+        setOpaque(false);
     }
     
     private Color fontbackground;
     private Color mouseovercolor;
+    private Icon BackGroundPicture;
     private MouseAdapter mouseover = new MouseAdapter() {
         @Override
         public void mouseEntered(MouseEvent e) {
@@ -44,8 +50,31 @@ public class RichLabel extends JLabel{
         }
     };
     
+    @Override
+    public void paint(Graphics g) {
+        if (BackGroundPicture != null) {
+            Image img = ((ImageIcon)BackGroundPicture).getImage();
+            g.drawImage(img, 0, 0, getWidth(), getHeight(),
+                    this);
+
+            setOpaque(false);
+            super.paint(g);
+        }
+        else{
+            super.paint(g);
+        }
+    }
+    
     public void setMouseovercolor(Color mouseovercolor){
         this.mouseovercolor=mouseovercolor;
+    }
+
+    public Icon getBackGroundPicture() {
+        return BackGroundPicture;
+    }
+
+    public void setBackGroundPicture(Icon BackGroundPicture) {
+        this.BackGroundPicture = BackGroundPicture;
     }
     
 }
