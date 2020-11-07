@@ -69,6 +69,6 @@ public class CustomTextField extends JTextField implements KeyListener {
     }
 
     public void setTexto(Texto texto) {
-        texto = texto;
+        this.texto = texto;
     }
 }
