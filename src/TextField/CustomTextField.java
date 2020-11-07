@@ -14,7 +14,7 @@ import javax.swing.JTextField;
  * @author AlanDec
  */
 public class CustomTextField extends JTextField implements KeyListener {
-    private static Texto texto = Texto.NORMAL;
+    private Texto texto = Texto.NORMAL;
     public CustomTextField (){
         this.addKeyListener(this);
     }
@@ -69,6 +69,6 @@ public class CustomTextField extends JTextField implements KeyListener {
     }
 
     public void setTexto(Texto texto) {
-        CustomTextField.texto = texto;
+        texto = texto;
     }
 }
